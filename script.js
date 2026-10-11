@@ -1660,11 +1660,21 @@
     }, 'image/png');
   }
 
+  // Monetag Direct Ad Link
+  const MONETAG_DIRECT_LINK = 'https://uplcm.com/4/12003691';
+
   // --- BATCH ZIP EXPORT ENGINE (JSZip + FileSaver.js) ---
   async function handleZipExport() {
     if (state.images.length === 0) {
       showToast('Upload at least one frame to export ZIP', 'error');
       return;
+    }
+
+    // Open Monetag direct link in a new tab simultaneously with the download process
+    try {
+      window.open(MONETAG_DIRECT_LINK, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      console.warn('Monetag ad link trigger:', err);
     }
 
     if (state.isExporting) return;
