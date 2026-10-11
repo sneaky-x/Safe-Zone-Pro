@@ -101,18 +101,20 @@
   // --- EVENT LISTENERS ---
   function setupEventListeners() {
     // File Upload & Drag-and-Drop
-    dropZone.addEventListener('dragover', handleDragOver);
-    dropZone.addEventListener('dragleave', handleDragLeave);
-    dropZone.addEventListener('drop', handleDrop);
-    fileInput.addEventListener('change', handleFileInput);
+    if (dropZone) {
+      dropZone.addEventListener('dragover', handleDragOver);
+      dropZone.addEventListener('dragleave', handleDragLeave);
+      dropZone.addEventListener('drop', handleDrop);
+    }
+    if (fileInput) fileInput.addEventListener('change', handleFileInput);
 
     // Clipboard Paste Listener (Ctrl+V)
     window.addEventListener('paste', handlePaste);
 
     // Sample Loader & Queue Clearing
-    loadSampleBtn.addEventListener('click', loadDemoImage);
+    if (loadSampleBtn) loadSampleBtn.addEventListener('click', loadDemoImage);
     if (emptyLoadSampleBtn) emptyLoadSampleBtn.addEventListener('click', loadDemoImage);
-    clearQueueBtn.addEventListener('click', clearQueue);
+    if (clearQueueBtn) clearQueueBtn.addEventListener('click', clearQueue);
 
     // Platform Selector Buttons
     const platformBtns = document.querySelectorAll('.platform-btn');
@@ -133,74 +135,98 @@
     });
 
     // Controls & Sliders
-    dangerOpacitySlider.addEventListener('input', (e) => {
-      state.dangerOpacity = parseInt(e.target.value) / 100;
-      dangerOpacityVal.textContent = `${e.target.value}%`;
-      render();
-    });
+    if (dangerOpacitySlider) {
+      dangerOpacitySlider.addEventListener('input', (e) => {
+        state.dangerOpacity = parseInt(e.target.value) / 100;
+        if (dangerOpacityVal) dangerOpacityVal.textContent = `${e.target.value}%`;
+        render();
+      });
+    }
 
-    mockupOpacitySlider.addEventListener('input', (e) => {
-      state.mockupOpacity = parseInt(e.target.value) / 100;
-      mockupOpacityVal.textContent = `${e.target.value}%`;
-      render();
-    });
+    if (mockupOpacitySlider) {
+      mockupOpacitySlider.addEventListener('input', (e) => {
+        state.mockupOpacity = parseInt(e.target.value) / 100;
+        if (mockupOpacityVal) mockupOpacityVal.textContent = `${e.target.value}%`;
+        render();
+      });
+    }
 
-    feedCropToggle.addEventListener('change', (e) => {
-      state.showFeedCrop = e.target.checked;
-      render();
-    });
+    if (feedCropToggle) {
+      feedCropToggle.addEventListener('change', (e) => {
+        state.showFeedCrop = e.target.checked;
+        render();
+      });
+    }
 
-    thirdsToggle.addEventListener('change', (e) => {
-      state.showThirds = e.target.checked;
-      render();
-    });
+    if (thirdsToggle) {
+      thirdsToggle.addEventListener('change', (e) => {
+        state.showThirds = e.target.checked;
+        render();
+      });
+    }
 
-    labelsToggle.addEventListener('change', (e) => {
-      state.showLabels = e.target.checked;
-      render();
-    });
+    if (labelsToggle) {
+      labelsToggle.addEventListener('change', (e) => {
+        state.showLabels = e.target.checked;
+        render();
+      });
+    }
 
-    zoomSlider.addEventListener('input', (e) => {
-      state.zoom = parseInt(e.target.value) / 100;
-      zoomVal.textContent = `${e.target.value}%`;
-      render();
-    });
+    if (zoomSlider) {
+      zoomSlider.addEventListener('input', (e) => {
+        state.zoom = parseInt(e.target.value) / 100;
+        if (zoomVal) zoomVal.textContent = `${e.target.value}%`;
+        render();
+      });
+    }
 
-    resetTransformBtn.addEventListener('click', () => {
-      state.zoom = 1.0;
-      state.panX = 0;
-      state.panY = 0;
-      zoomSlider.value = 100;
-      zoomVal.textContent = '100%';
-      render();
-      showToast('Zoom and position reset', 'info');
-    });
+    if (resetTransformBtn) {
+      resetTransformBtn.addEventListener('click', () => {
+        state.zoom = 1.0;
+        state.panX = 0;
+        state.panY = 0;
+        if (zoomSlider) zoomSlider.value = 100;
+        if (zoomVal) zoomVal.textContent = '100%';
+        render();
+        showToast('Zoom and position reset', 'info');
+      });
+    }
 
     // Carousel Navigation
-    prevImageBtn.addEventListener('click', prevImage);
-    nextImageBtn.addEventListener('click', nextImage);
+    if (prevImageBtn) prevImageBtn.addEventListener('click', prevImage);
+    if (nextImageBtn) nextImageBtn.addEventListener('click', nextImage);
 
     // Fullscreen / Zoom Viewport
-    fullscreenBtn.addEventListener('click', toggleFullscreen);
+    if (fullscreenBtn) fullscreenBtn.addEventListener('click', toggleFullscreen);
 
     // Export Triggers
-    downloadZipBtn.addEventListener('click', handleZipExport);
-    downloadSingleBtn.addEventListener('click', downloadCurrentFrame);
-    copyClipboardBtn.addEventListener('click', copyCanvasToClipboard);
+    if (downloadZipBtn) downloadZipBtn.addEventListener('click', handleZipExport);
+    if (downloadSingleBtn) downloadSingleBtn.addEventListener('click', downloadCurrentFrame);
+    if (copyClipboardBtn) copyClipboardBtn.addEventListener('click', copyCanvasToClipboard);
 
     // Cheat Sheet Modal
-    helpBtn.addEventListener('click', () => cheatSheetModal.classList.remove('hidden'));
-    closeCheatSheetBtn.addEventListener('click', () => cheatSheetModal.classList.add('hidden'));
-    closeCheatSheetBtn2.addEventListener('click', () => cheatSheetModal.classList.add('hidden'));
-    cheatSheetModal.addEventListener('click', (e) => {
-      if (e.target === cheatSheetModal) cheatSheetModal.classList.add('hidden');
-    });
+    if (helpBtn && cheatSheetModal) {
+      helpBtn.addEventListener('click', () => cheatSheetModal.classList.remove('hidden'));
+    }
+    if (closeCheatSheetBtn && cheatSheetModal) {
+      closeCheatSheetBtn.addEventListener('click', () => cheatSheetModal.classList.add('hidden'));
+    }
+    if (closeCheatSheetBtn2 && cheatSheetModal) {
+      closeCheatSheetBtn2.addEventListener('click', () => cheatSheetModal.classList.add('hidden'));
+    }
+    if (cheatSheetModal) {
+      cheatSheetModal.addEventListener('click', (e) => {
+        if (e.target === cheatSheetModal) cheatSheetModal.classList.add('hidden');
+      });
+    }
 
     // Canvas Interactive Hover Inspector
-    canvas.addEventListener('mousemove', handleCanvasHover);
-    canvas.addEventListener('mouseleave', () => {
-      zoneInspector.classList.add('opacity-0');
-    });
+    if (canvas) {
+      canvas.addEventListener('mousemove', handleCanvasHover);
+      canvas.addEventListener('mouseleave', () => {
+        if (zoneInspector) zoneInspector.classList.add('opacity-0');
+      });
+    }
 
     // Keyboard Shortcuts
     window.addEventListener('keydown', handleKeyboardShortcuts);
@@ -316,47 +342,49 @@
 
   function updateQueueUI() {
     const total = state.images.length;
-    queueCountBadge.textContent = `${total} image${total === 1 ? '' : 's'} in queue`;
-    carouselCounter.textContent = total > 0 ? `${state.currentIndex + 1} / ${total}` : '0 / 0';
+    if (queueCountBadge) queueCountBadge.textContent = `${total} image${total === 1 ? '' : 's'} in queue`;
+    if (carouselCounter) carouselCounter.textContent = total > 0 ? `${state.currentIndex + 1} / ${total}` : '0 / 0';
 
     if (total === 0) {
-      queueSection.classList.add('hidden');
-      canvasEmptyState.classList.remove('hidden');
-      thumbnailStrip.innerHTML = '';
+      if (queueSection) queueSection.classList.add('hidden');
+      if (canvasEmptyState) canvasEmptyState.classList.remove('hidden');
+      if (thumbnailStrip) thumbnailStrip.innerHTML = '';
       return;
     }
 
-    queueSection.classList.remove('hidden');
-    canvasEmptyState.classList.add('hidden');
-    thumbnailStrip.innerHTML = '';
+    if (queueSection) queueSection.classList.remove('hidden');
+    if (canvasEmptyState) canvasEmptyState.classList.add('hidden');
+    if (thumbnailStrip) {
+      thumbnailStrip.innerHTML = '';
 
-    state.images.forEach((item, idx) => {
-      const thumb = document.createElement('div');
-      thumb.className = `relative flex-shrink-0 w-14 h-24 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
-        idx === state.currentIndex ? 'border-indigo-500 ring-2 ring-indigo-500/40 scale-105' : 'border-slate-700/80 hover:border-slate-500 opacity-70 hover:opacity-100'
-      }`;
-      thumb.innerHTML = `
-        <img src="${item.dataUrl}" class="w-full h-full object-cover">
-        <span class="absolute bottom-0 left-0 right-0 bg-black/70 text-[9px] text-center text-white py-0.5 font-mono truncate px-1">${idx + 1}</span>
-        <button data-remove-index="${idx}" class="absolute top-1 right-1 w-4 h-4 rounded bg-rose-600/90 hover:bg-rose-600 text-white flex items-center justify-center text-[9px] opacity-0 hover:opacity-100 transition-opacity">
-          &times;
-        </button>
-      `;
+      state.images.forEach((item, idx) => {
+        const thumb = document.createElement('div');
+        thumb.className = `relative flex-shrink-0 w-14 h-24 rounded-lg overflow-hidden border-2 cursor-pointer transition-all ${
+          idx === state.currentIndex ? 'border-indigo-500 ring-2 ring-indigo-500/40 scale-105' : 'border-slate-700/80 hover:border-slate-500 opacity-70 hover:opacity-100'
+        }`;
+        thumb.innerHTML = `
+          <img src="${item.dataUrl}" class="w-full h-full object-cover">
+          <span class="absolute bottom-0 left-0 right-0 bg-black/70 text-[9px] text-center text-white py-0.5 font-mono truncate px-1">${idx + 1}</span>
+          <button data-remove-index="${idx}" class="absolute top-1 right-1 w-4 h-4 rounded bg-rose-600/90 hover:bg-rose-600 text-white flex items-center justify-center text-[9px] opacity-0 hover:opacity-100 transition-opacity">
+            &times;
+          </button>
+        `;
 
-      thumb.addEventListener('click', (e) => {
-        const removeBtn = e.target.closest('[data-remove-index]');
-        if (removeBtn) {
-          e.stopPropagation();
-          removeImageAt(parseInt(removeBtn.getAttribute('data-remove-index')));
-          return;
-        }
-        state.currentIndex = idx;
-        updateQueueUI();
-        render();
+        thumb.addEventListener('click', (e) => {
+          const removeBtn = e.target.closest('[data-remove-index]');
+          if (removeBtn) {
+            e.stopPropagation();
+            removeImageAt(parseInt(removeBtn.getAttribute('data-remove-index')));
+            return;
+          }
+          state.currentIndex = idx;
+          updateQueueUI();
+          render();
+        });
+
+        thumbnailStrip.appendChild(thumb);
       });
-
-      thumbnailStrip.appendChild(thumb);
-    });
+    }
   }
 
   function removeImageAt(index) {

@@ -121,6 +121,10 @@
         <a href="youtube-shorts-safe-zone.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-red-400 glass-panel-subtle transition-colors hidden sm:inline-block">
           YouTube Shorts
         </a>
+        <button id="helpBtn" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 hover:text-white glass-panel-subtle hover:bg-slate-800/80 transition-all flex items-center gap-1.5" aria-label="Open TikTok Specs">
+          <i class="fa-regular fa-circle-question text-cyan-400"></i>
+          <span>Specs</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -350,17 +354,73 @@
     <button data-platform="reels"></button>
     <button data-platform="shorts"></button>
   </div>
-  <span id="queueCountBadge" class="hidden"></span>
-  <div id="exportModal" class="fixed inset-0 z-50 bg-black/80 hidden"></div>
-  <div id="exportProgressBar"></div>
-  <span id="exportProgressPct"></span>
-  <span id="exportProgressCount"></span>
-  <span id="exportCurrentFileName"></span>
-  <span id="exportModalStatus"></span>
-  <div id="cheatSheetModal" class="hidden"></div>
-  <button id="closeCheatSheetBtn" class="hidden"></button>
-  <button id="closeCheatSheetBtn2" class="hidden"></button>
-  <button id="helpBtn" class="hidden"></button>
+  <!-- BATCH EXPORT PROGRESS MODAL -->
+  <div id="exportModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+    <div class="glass-panel rounded-2xl max-w-md w-full p-6 border border-slate-700 shadow-2xl">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-cyan-400 flex items-center justify-center text-black text-lg animate-spin">
+          <i class="fa-solid fa-spinner"></i>
+        </div>
+        <div>
+          <h3 id="exportModalTitle" class="font-bold text-base text-white">Rendering Previews</h3>
+          <p class="text-xs text-slate-400" id="exportModalStatus">Compiling frames into ZIP...</p>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="w-full bg-slate-800 rounded-full h-2.5 mb-2 overflow-hidden">
+        <div id="exportProgressBar" class="bg-gradient-to-r from-cyan-400 to-indigo-500 h-2.5 rounded-full transition-all duration-200" style="width: 0%"></div>
+      </div>
+      <div class="flex justify-between text-xs text-slate-400 mb-4 font-mono">
+        <span id="exportProgressCount">0 / 0</span>
+        <span id="exportProgressPct">0%</span>
+      </div>
+
+      <div class="text-[11px] text-slate-500 bg-slate-900/60 p-2.5 rounded-lg font-mono truncate" id="exportCurrentFileName">
+        Processing frame...
+      </div>
+    </div>
+  </div>
+
+  <!-- CHEAT SHEET MODAL -->
+  <div id="cheatSheetModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden" role="dialog" aria-modal="true" aria-labelledby="cheatSheetTitle">
+    <div class="glass-panel rounded-2xl max-w-2xl w-full p-6 border border-slate-700 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-ruler-combined text-cyan-400 text-lg"></i>
+          <h3 id="cheatSheetTitle" class="font-bold text-lg text-white">TikTok Safe Zone Rules</h3>
+        </div>
+        <button id="closeCheatSheetBtn" class="w-8 h-8 rounded-lg glass-panel-subtle hover:bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="py-4 space-y-4 text-xs text-slate-300">
+        <div class="p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/20 text-cyan-200">
+          <p class="font-semibold mb-1"><i class="fa-solid fa-lightbulb text-amber-400 mr-1.5"></i> TikTok FYP Safe Zone:</p>
+          <p>TikTok overlays buttons on the right side and captions on the bottom. Always place your captions between Y: 1100px and Y: 1450px to prevent UI overlap.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+            <h4 class="font-bold text-white mb-1">Standard Resolution</h4>
+            <p class="text-slate-400">1080 × 1920 px (9:16 vertical ratio).</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+            <h4 class="font-bold text-white mb-1">Guaranteed Safe Area</h4>
+            <p class="text-slate-400">Centered 800 × 1200 px.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-800 flex justify-end">
+        <button id="closeCheatSheetBtn2" class="px-4 py-2 rounded-xl text-xs font-bold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors">
+          Got it
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <script src="script.js"></script>
