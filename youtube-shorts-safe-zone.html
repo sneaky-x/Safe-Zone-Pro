@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===================================================================
+       PRIMARY SEO METADATA - YOUTUBE SHORTS SAFE ZONE
+       =================================================================== -->
+  <title>YouTube Shorts Safe Zone Template &amp; UI Overlay Guide (9:16) | 2026</title>
+  <meta name="description" content="Free YouTube Shorts safe zone overlay tool and 9:16 template. Test frames against the Subscribe button, video title, and right-side action column icons.">
+  <meta name="keywords" content="youtube shorts safe zone, youtube shorts overlay template 2026, shorts safe area 1080x1920, shorts subscribe button safe zone, youtube vertical video guidelines">
+  <meta name="author" content="Social Safe-Zone Pro">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://socialsafezonepro.com/youtube-shorts-safe-zone.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://socialsafezonepro.com/youtube-shorts-safe-zone.html">
+  <meta property="og:site_name" content="Social Safe-Zone Pro">
+  <meta property="og:title" content="YouTube Shorts Safe Zone Template &amp; UI Overlay Guide (9:16) | 2026">
+  <meta property="og:description" content="Free online YouTube Shorts safe zone overlay tool. Prevent subscribe pills and action icons from blocking your video titles and subtitles.">
+  <meta property="og:image" content="https://socialsafezonepro.com/og-shorts.jpg">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://socialsafezonepro.com/youtube-shorts-safe-zone.html">
+  <meta name="twitter:title" content="YouTube Shorts Safe Zone Template (1080x1920)">
+  <meta name="twitter:description" content="Check your Shorts video frames on a 1080x1920 canvas against YouTube's native 2026 UI overlay.">
+  <meta name="twitter:image" content="https://socialsafezonepro.com/og-shorts.jpg">
+
+  <meta name="theme-color" content="#090d16">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff0000'/%3E%3Cpolygon points='12,9 23,16 12,23' fill='white'/%3E%3C/svg%3E">
+
+  <!-- STRUCTURED DATA (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "YouTube Shorts Safe Zone Template and UI Overlay Guide (1080x1920)",
+    "description": "Accurate pixel margin dimensions for YouTube Shorts vertical 9:16 videos to avoid title and subscribe button obstruction.",
+    "url": "https://socialsafezonepro.com/youtube-shorts-safe-zone.html",
+    "author": {
+      "@type": "Organization",
+      "name": "Social Safe-Zone Pro"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Social Safe-Zone Pro"
+    },
+    "datePublished": "2026-01-01",
+    "dateModified": "2026-10-11"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are the safe zone dimensions for YouTube Shorts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For YouTube Shorts: Top safe area starts at 180px down from the top edge. Right margin is 180px from the right edge (thumbs up, thumbs down, comments, share, remix). Bottom margin is 440px up from the bottom (channel name, Subscribe button pill, video title, and red scrubber bar). The guaranteed center safe zone is 780x1260 pixels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does YouTube Shorts have a red progress scrubber bar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, YouTube Shorts features a thin red scrubber bar along the bottom of the video player at Y: 1780px. Any subtitles placed at the very bottom edge of the frame will be obstructed by this bar and the navigation menu."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind CSS & FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    window.DEFAULT_PLATFORM = 'shorts';
+  </script>
+</head>
+<body class="bg-[#090d16] text-slate-100 antialiased selection:bg-red-500 selection:text-white flex flex-col min-h-screen">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-800/80 px-4 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white shadow-lg shadow-red-600/20">
+          <i class="fa-brands fa-youtube text-xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-lg lg:text-xl text-white">Shorts Safe-Zone</span>
+            <span class="px-2 py-0.5 text-[10px] font-bold uppercase rounded-md bg-red-600 text-white">2026 SPECS</span>
+          </div>
+          <p class="text-xs text-slate-400">1080 × 1920 YouTube Shorts UI Overlay</p>
+        </div>
+      </a>
+
+      <nav class="flex items-center gap-2 text-xs font-semibold">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white glass-panel-subtle transition-colors">
+          All Platforms
+        </a>
+        <a href="tiktok-safe-zone.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-cyan-400 glass-panel-subtle transition-colors hidden sm:inline-block">
+          TikTok Tool
+        </a>
+        <a href="instagram-reels-safe-zone.html" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-pink-400 glass-panel-subtle transition-colors hidden sm:inline-block">
+          Instagram Reels
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO TITLE -->
+  <section class="max-w-7xl w-full mx-auto px-4 lg:px-8 pt-8 pb-4 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-red-950/80 text-red-300 border border-red-500/30 mb-3">
+      <i class="fa-brands fa-youtube"></i>
+      <span>YouTube Shorts UI Safe Zone Verification</span>
+    </div>
+    <h1 class="text-2xl sm:text-4xl font-extrabold text-white max-w-4xl mx-auto leading-tight">
+      YouTube Shorts Safe Zone Template &amp; UI Overlay Tool (1080×1920)
+    </h1>
+    <p class="text-sm text-slate-400 max-w-2xl mx-auto mt-2">
+      Protect your subtitles from the YouTube subscribe button, title text, and like buttons. Upload 9:16 frames to check safe areas on canvas.
+    </p>
+  </section>
+
+  <!-- MONETAG AD ZONE -->
+  <div class="w-full max-w-7xl mx-auto px-4 lg:px-8 my-2">
+    <!-- MONETAG AD ZONE -->
+    <div id="monetag-ad-top" class="monetag-ad-wrapper w-full max-w-4xl">
+      <span class="ad-badge">Sponsor</span>
+      <div class="text-center py-2">
+        <p class="text-xs text-slate-400 font-medium">Monetag Responsive Header Ad Zone (728x90 / Auto)</p>
+        <p class="text-[11px] text-slate-500">Insert your Monetag banner / in-page push script tag here</p>
+      </div>
+    </div>
+    <!-- /MONETAG AD ZONE -->
+  </div>
+
+  <!-- INTERACTIVE TOOL EMBED -->
+  <main class="max-w-7xl w-full mx-auto px-4 lg:px-8 py-4">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+      
+      <!-- CONTROLS -->
+      <section class="lg:col-span-5 flex flex-col gap-5 order-2 lg:order-1">
+        <div class="glass-panel rounded-2xl p-5">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-cloud-arrow-up text-red-400"></i>
+            Upload Shorts Frame
+          </h2>
+          <div id="dropZone" class="group relative border-2 border-dashed border-slate-700 hover:border-red-500/80 rounded-xl p-6 text-center cursor-pointer transition-all duration-300 bg-slate-900/40">
+            <input type="file" id="fileInput" multiple accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+            <div class="flex flex-col items-center justify-center gap-2 pointer-events-none">
+              <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 group-hover:scale-110 transition-all flex items-center justify-center">
+                <i class="fa-solid fa-images text-xl"></i>
+              </div>
+              <p class="text-sm font-semibold text-slate-200">Drag &amp; drop 9:16 frames here</p>
+              <p class="text-xs text-slate-400">or <span class="text-red-400 underline">browse files</span></p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 mt-3">
+            <button id="loadSampleBtn" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-300 glass-panel-subtle hover:bg-slate-800 transition-all flex items-center justify-center gap-2 border border-slate-700/60">
+              <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i> Load Demo
+            </button>
+            <button id="clearQueueBtn" class="px-3 py-2 rounded-xl text-xs font-semibold text-slate-400 glass-panel-subtle hover:bg-rose-950/40 hover:text-rose-300 transition-all flex items-center justify-center gap-2 border border-slate-700/60">
+              <i class="fa-regular fa-trash-can"></i> Clear
+            </button>
+          </div>
+
+          <div id="queueSection" class="mt-4 pt-3 border-t border-slate-800/80 hidden">
+            <div id="thumbnailStrip" class="flex gap-2 overflow-x-auto pb-2 scrollbar-thin"></div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="glass-panel rounded-2xl p-5 flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+              <i class="fa-solid fa-sliders text-red-400"></i> Shorts Controls
+            </h2>
+            <span class="text-xs text-red-400 font-mono" id="currentModeLabel">Danger Zones</span>
+          </div>
+
+          <div class="grid grid-cols-4 gap-1 p-1 bg-slate-900/80 rounded-xl border border-slate-800 text-xs">
+            <button data-mode="danger" class="mode-btn active py-2 rounded-lg font-semibold text-center transition-all bg-indigo-600 text-white">Danger</button>
+            <button data-mode="mockup" class="mode-btn py-2 rounded-lg font-semibold text-center transition-all text-slate-400 hover:text-white">Mockup</button>
+            <button data-mode="combined" class="mode-btn py-2 rounded-lg font-semibold text-center transition-all text-slate-400 hover:text-white">Both</button>
+            <button data-mode="clean" class="mode-btn py-2 rounded-lg font-semibold text-center transition-all text-slate-400 hover:text-white">Clean</button>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex flex-col gap-1.5" id="dangerOpacityWrapper">
+              <div class="flex justify-between text-xs">
+                <span class="text-slate-300">Danger Zone Opacity</span>
+                <span id="dangerOpacityVal" class="text-slate-400 font-mono">60%</span>
+              </div>
+              <input type="range" id="dangerOpacity" min="10" max="100" value="60" class="w-full">
+            </div>
+
+            <div class="flex flex-col gap-1.5" id="mockupOpacityWrapper">
+              <div class="flex justify-between text-xs">
+                <span class="text-slate-300">UI Mockup Opacity</span>
+                <span id="mockupOpacityVal" class="text-slate-400 font-mono">100%</span>
+              </div>
+              <input type="range" id="mockupOpacity" min="10" max="100" value="100" class="w-full">
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-slate-800/80 space-y-2">
+            <label class="flex items-center justify-between p-2 rounded-lg hover:bg-slate-800/40 cursor-pointer">
+              <span class="text-xs text-slate-200">Rule of Thirds</span>
+              <input type="checkbox" id="thirdsToggle" class="w-4 h-4 rounded text-indigo-600">
+            </label>
+            <label class="flex items-center justify-between p-2 rounded-lg hover:bg-slate-800/40 cursor-pointer">
+              <span class="text-xs text-slate-200">Zone Pixel Badges</span>
+              <input type="checkbox" id="labelsToggle" checked class="w-4 h-4 rounded text-indigo-600">
+            </label>
+            <input type="checkbox" id="feedCropToggle" class="hidden">
+          </div>
+
+          <div class="pt-2 border-t border-slate-800/80">
+            <div class="flex items-center gap-3">
+              <input type="range" id="zoomSlider" min="50" max="150" value="100" class="w-full">
+              <span id="zoomVal" class="text-xs font-mono text-slate-300 min-w-[36px]">100%</span>
+              <button id="resetTransformBtn" class="text-[11px] text-red-400">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download -->
+        <div class="glass-panel rounded-2xl p-5">
+          <div class="space-y-3">
+            <select id="zipScopeSelect" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200">
+              <option value="current_platform_all">All Uploaded Frames (Shorts Overlay)</option>
+              <option value="all_platforms_current">Current Frame (TikTok + Reels + Shorts)</option>
+              <option value="full_matrix">Full Matrix (All Frames × All 3 Platforms)</option>
+            </select>
+            <button id="downloadZipBtn" class="w-full py-3 px-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 shadow-lg shadow-red-600/30 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-file-zipper text-base"></i>
+              <span>Download Shorts Previews as ZIP</span>
+            </button>
+            <div class="grid grid-cols-2 gap-2 pt-1">
+              <button id="downloadSingleBtn" class="py-2 px-3 rounded-xl text-xs font-semibold text-slate-200 glass-panel-subtle hover:bg-slate-800 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-download text-red-400"></i> Export PNG
+              </button>
+              <button id="copyClipboardBtn" class="py-2 px-3 rounded-xl text-xs font-semibold text-slate-200 glass-panel-subtle hover:bg-slate-800 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-copy text-red-400"></i> Copy Frame
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- CANVAS PREVIEW -->
+      <section class="lg:col-span-7 flex flex-col gap-4 order-1 lg:order-2">
+        <div class="glass-panel rounded-2xl p-4 lg:p-6 flex flex-col items-center">
+          <div class="w-full flex items-center justify-between pb-4 mb-4 border-b border-slate-800/80">
+            <span id="stagePlatformBadge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-red-950/80 text-red-300 border border-red-500/30">
+              <i class="fa-brands fa-youtube text-xs"></i>
+              <span>YouTube Shorts Safe Zone</span>
+            </span>
+            <div class="flex items-center gap-2">
+              <button id="prevImageBtn" class="w-8 h-8 rounded-lg glass-panel-subtle text-slate-300"><i class="fa-solid fa-chevron-left"></i></button>
+              <span id="carouselCounter" class="text-xs font-mono text-slate-400 px-1">1 / 1</span>
+              <button id="nextImageBtn" class="w-8 h-8 rounded-lg glass-panel-subtle text-slate-300"><i class="fa-solid fa-chevron-right"></i></button>
+              <button id="fullscreenBtn" class="w-8 h-8 rounded-lg glass-panel-subtle text-slate-300 ml-1"><i class="fa-solid fa-expand"></i></button>
+            </div>
+          </div>
+
+          <div class="w-full flex justify-center py-2">
+            <div id="canvasViewport" class="canvas-container relative">
+              <canvas id="safeZoneCanvas" width="1080" height="1920"></canvas>
+              <div id="canvasEmptyState" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-slate-950/80 hidden pointer-events-none">
+                <button id="emptyLoadSampleBtn" class="pointer-events-auto px-4 py-2 rounded-xl text-xs font-bold text-white bg-red-600">Load Demo</button>
+              </div>
+              <div id="zoneInspector" class="absolute bottom-3 left-3 px-2 py-1 rounded bg-black/80 border border-white/10 text-[10px] font-mono text-slate-300 opacity-0 pointer-events-none">
+                <span id="zoneInspectorText">Safe Zone</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- DEEP TECHNICAL SEO GUIDE FOR YOUTUBE SHORTS -->
+  <article class="max-w-7xl w-full mx-auto px-4 lg:px-8 py-10 border-t border-slate-800/80">
+    <div class="max-w-3xl mx-auto space-y-6 text-slate-300 text-xs sm:text-sm leading-relaxed">
+      <h2 class="text-xl sm:text-2xl font-bold text-white">Mastering YouTube Shorts 9:16 Video Layout</h2>
+      <p>YouTube Shorts features prominent right-side engagement buttons and a distinct red "Subscribe" button pill paired with the channel avatar. In addition, the video title can span 2 to 3 lines across the bottom left. Placing subtitles directly on the lower third causes harsh text collisions.</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+          <h3 class="font-bold text-red-400 mb-1">Bottom Title &amp; Subscribe Pill (Y: 1490-1780px)</h3>
+          <p class="text-xs text-slate-400">Covers the channel name, subscribe button, and multi-line video title. Keep all captions elevated above Y: 1450px.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
+          <h3 class="font-bold text-red-400 mb-1">Red Progress Scrubber (Y: 1780-1920px)</h3>
+          <p class="text-xs text-slate-400">The red scrubbing timeline and YouTube bottom navigation occupy the bottom 140px. Never place logos or legal text here.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- MONETAG AD ZONE - BOTTOM -->
+  <div class="w-full max-w-7xl mx-auto px-4 lg:px-8 my-6">
+    <!-- MONETAG AD ZONE -->
+    <div id="monetag-ad-bottom" class="monetag-ad-wrapper w-full max-w-5xl min-h-[100px]">
+      <span class="ad-badge">Sponsor</span>
+      <div class="text-center py-3">
+        <p class="text-sm font-semibold text-slate-300">Monetag Responsive Bottom Billboard Ad Zone</p>
+      </div>
+    </div>
+    <!-- /MONETAG AD ZONE -->
+  </div>
+
+  <footer class="glass-panel border-t border-slate-800/80 py-6 px-4 text-center text-xs text-slate-500">
+    <p>&copy; 2026 Social Safe-Zone Pro • <a href="index.html" class="text-red-400 hover:underline">All Platforms</a> • <a href="tiktok-safe-zone.html" class="hover:underline">TikTok Safe Zone</a> • <a href="instagram-reels-safe-zone.html" class="hover:underline">Instagram Reels</a></p>
+  </footer>
+
+  <div class="hidden" id="platformSelector">
+    <button data-platform="tiktok"></button>
+    <button data-platform="reels"></button>
+    <button data-platform="shorts"></button>
+  </div>
+  <span id="queueCountBadge" class="hidden"></span>
+  <div id="exportModal" class="fixed inset-0 z-50 bg-black/80 hidden"></div>
+  <div id="exportProgressBar"></div>
+  <span id="exportProgressPct"></span>
+  <span id="exportProgressCount"></span>
+  <span id="exportCurrentFileName"></span>
+  <span id="exportModalStatus"></span>
+  <div id="cheatSheetModal" class="hidden"></div>
+  <button id="closeCheatSheetBtn" class="hidden"></button>
+  <button id="closeCheatSheetBtn2" class="hidden"></button>
+  <button id="helpBtn" class="hidden"></button>
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

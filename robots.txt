@@ -1,0 +1,9 @@
+# Robots.txt for Social Safe-Zone Pro
+# Allow full indexing for all search engines (Google, Bing, Yandex, DuckDuckGo)
+
+User-agent: *
+Allow: /
+Disallow: /scratch/
+
+# Sitemap location
+Sitemap: https://socialsafezonepro.com/sitemap.xml
